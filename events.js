@@ -1,3 +1,4 @@
+var bod = document.body;
 var outputTarget = document.getElementById("output-target");
 var inputField = document.getElementById("keypress-input");
 var colorize = document.getElementById("add-color");
@@ -5,8 +6,9 @@ var largerize = document.getElementById("make-large");
 var borderize = document.getElementById("add-border");
 var round = document.getElementById("add-rounding");
 var thePig = document.getElementById("guinea-pig");
-
-var bod = document.body;
+var introText = bod.childNodes[5].childNodes[1];
+var conclusionText = bod.childNodes[5].childNodes[11];
+var allButtons = document.getElementsByTagName("button");
 
 // 1. When any section is clicked the output target text should be "You clicked on the {text of the section} section"
 bod.addEventListener("click", function(e){
@@ -14,7 +16,7 @@ bod.addEventListener("click", function(e){
 	// console.log("let's dig", e);
 	if (e.target.className === "article-section") {
 		// console.log("grab section 1", e.target.firstChild.nodeValue);
-		outputTarget.innerHTML = `<p>"You clicked on the ${e.target.firstChild.nodeValue}" section.</p>`;
+		outputTarget.innerHTML = `<p>You clicked on the "${e.target.firstChild.nodeValue}" section.</p>`;
 		// console.log("output from outputString", outputString);
 		}
 	});
@@ -68,12 +70,28 @@ round.addEventListener("click", function(e){
 });
 
 // 9. The first section's text should be bold.
-
+window.addEventListener("load", function(){
+	// have the base available
+		// console.log("let's dig", e);
+		// console.log("grabbing the first section", bod.childNodes[5].childNodes[1].innerHTML);
+	introText.setAttribute("class", "bolder");
+	});
 // 10. The last section's text should be bold and italicized.
-
+window.addEventListener("load", function(){
+	// have the base available
+		// console.log("let's dig", e);
+		// console.log("grabbing the last section", bod.childNodes[5].childNodes[11]);
+	conclusionText.setAttribute("class", "bolder italics");
+	});
 
 // 11. Make the buttons stop appearing next to each other as inline elements. Change them into block elements.
+window.addEventListener("load", function(){
 
+	// console.log("by tag name", document.getElementsByTagName("button"));
+	for (var i = 0; i < 3; i++){
+		allButtons[i].setAttribute("class", "block");
+	}
+	});
 
 
 

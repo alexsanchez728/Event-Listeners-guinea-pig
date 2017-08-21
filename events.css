@@ -10,3 +10,12 @@
 .round {
 	border-radius: 50%;
 }
+.bolder {
+	font-weight: bold;
+}
+.italics {
+	font-style: italic;
+}
+.block {
+	display: block;
+}
